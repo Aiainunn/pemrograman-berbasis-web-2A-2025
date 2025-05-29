@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halaman 2</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-xl max-w-4xl w-full flex overflow-hidden">
+    <div class="w-1/2 bg-indigo-800 flex items-center justify-center p-8">
+      <img src="Gambar 5.png" alt="Belajar" class="rounded-xl w-full h-auto object-cover">
+    </div>
+    <div class="md:w-1/2 p-8">
+      <div class="flex items-center mb-6">
+        <img src="Logo-.png" alt="ByteAcademy Logo" class="w-8 h-8 mr-2">
+        <h2 class="text-xl font-semibold text-gray-800">ByteAcademy</h2>
+      </div>
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">Mulai Hari Ini</h1>
+      <p class="text-sm text-gray-500 mb-6">Menunggu besok? Bisa jadi kamu takkan pernah mulai.</p>
+      <form id="signupForm" onsubmit="return validateForm()">
+        <div class="mb-4">
+          <label class="block text-gray-700">Alamat Email</label>
+          <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Alamat Email Anda" />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Nama Lengkap</label>
+          <input type="text" id="nama" class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Nama Lengkap Anda" />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Password</label>
+          <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Password Anda" />
+        </div>
+        <button type="submit" class="w-full bg-violet-600 text-white py-2 rounded-full mt-2 hover:bg-blue-700 transition">Sign Up</button>
+        <button type="button" class="w-full border border-gray-300 py-2 rounded-full mt-2 hover:bg-gray-100 transition">
+          <img src="https://img.icons8.com/color/16/000000/google-logo.png" class="inline mr-2" />
+          Sign Up with Google
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Validasi JavaScript -->
+  <script>
+    function validateForm() {
+      const email = document.getElementById('email').value.trim();
+      const nama = document.getElementById('nama').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email || !nama || !password) {
+        alert('Semua field wajib diisi!');
+        return false;
+      }
+
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Format email tidak valid.');
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert('Password minimal 6 karakter.');
+        return false;
+      }
+
+      alert('Form berhasil dikirim!');
+      return true;
+    }
+  </script>
+</body>
+</html>
